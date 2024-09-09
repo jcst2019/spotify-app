@@ -3,8 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes =  [ //TODO: router-outlet (Padre)
   {
-    path: '',//TODO loaclhost:4200 (Private) 🔴🔴
-    component: HomePageComponent,
+    path: 'auth', //TODO (Public) Login, Register, Forgot...
+    loadChildren: () => import(`./modules/auth/auth.module`).then(m => m.AuthModule)
+  },
+  {
+    path: '',// localhost:4200    TODO (Private) 🔴🔴
+    // component: HomePageComponent,
+    loadChildren: () => import(`./modules/home/home.module`).then(m => m.HomeModule),
+    // canActivate: [SessionGuard]
   }
 ];
 
