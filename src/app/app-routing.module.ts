@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 
 const routes: Routes =  [ //TODO: router-outlet (Padre)
   {
@@ -8,7 +9,7 @@ const routes: Routes =  [ //TODO: router-outlet (Padre)
   },
   {
     path: '',// localhost:4200    TODO (Private) 🔴🔴
-    // component: HomePageComponent,
+    component: HomePageComponent,
     loadChildren: () => import(`./modules/home/home.module`).then(m => m.HomeModule),
     // canActivate: [SessionGuard]
   }
